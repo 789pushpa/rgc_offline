@@ -4,10 +4,10 @@ from PyQt5.QtWidgets import QMainWindow, QErrorMessage, QTabWidget, QLabel, QWid
     QVBoxLayout
 
 #from app.event import Config, Scan, RunningScan, Event, Baseline, HistPoint, History
-from app.gui_history import HistTab
+from app.gui_history import HistTab #Where app is the root package and gui_history.py contains the HistTab class
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow): #QMainWindow is a predefined class that provides a main application window. suggests that you are defining a class named MainWindow that inherits from the QMainWindow class.
     '''
     '''
 
