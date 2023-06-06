@@ -1,6 +1,6 @@
-import pytz
-import yaml
-from PyQt5.QtWidgets import QMainWindow, QErrorMessage, QTabWidget, QLabel, QWidget, QDialog, QDialogButtonBox, \
+import pytz #timezone operations: convert datetime objects between different time zones,localize naive datetime objects, allowing you to work with time zone information from around the world.
+import yaml #human-readable data serialization format commonly used for configuration files and data exchange between programming languages.
+from PyQt5.QtWidgets import QMainWindow, QErrorMessage, QTabWidget, QLabel, QWidget, QDialog, QDialogButtonBox, \ #allows developers to create graphical user interfaces (GUIs) using the Qt APIs.
     QVBoxLayout
 
 #from app.event import Config, Scan, RunningScan, Event, Baseline, HistPoint, History
