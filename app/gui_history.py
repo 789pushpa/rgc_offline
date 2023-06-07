@@ -3,7 +3,7 @@
 import datetime
 import glob
 import json
-import re
+import re #re module is imported, you can use its functions and methods to perform various operations such as pattern matching, search, substitution, and more on strings using regular expressions. 
 import numpy as np
 from PyQt5.QtWidgets import QWidget, QLabel, QGroupBox, QHBoxLayout, QVBoxLayout, QGridLayout, QLineEdit, QSpacerItem, \
     QTableView, QAbstractItemView, QAbstractScrollArea, QStackedWidget, QDoubleSpinBox, QDateTimeEdit, QPushButton
