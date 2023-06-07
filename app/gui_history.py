@@ -34,12 +34,12 @@ class HistTab(QWidget):
         self.sub3_pen = pg.mkPen(color=(0, 180, 0), width=2)
 
         self.filename_regex = re.compile(
-            '(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})__(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}).txt')
+            '(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})__(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}).txt')#This part of the pattern matches a date and time string in the format "YYYY-MM-DD_HH-MM-SS". 
 
-        self.main = QHBoxLayout()  # main layout
+        self.main = QHBoxLayout()  # main layout Creates a horizontal box layout (QHBoxLayout) and assigns it to the self.main variable. A horizontal box layout arranges widgets in a single row, from left to right.
         self.setLayout(self.main)
 
-        # Left Side
+        # Left Side: the self.left layout will be placed on the left side within the self.main layout, and any widgets added to self.left will be arranged in a vertical column from top to bottom.
         self.left = QVBoxLayout()
         self.main.addLayout(self.left)
 
@@ -50,7 +50,7 @@ class HistTab(QWidget):
         self.start_label.setAlignment(Qt.AlignCenter)
         self.date_box.layout().addWidget(self.start_label)
         self.left.addWidget(self.date_box)
-        self.start_dedit = QDateTimeEdit(calendarPopup=True)
+        self.start_dedit = QDateTimeEdit(calendarPopup=True)#By setting calendarPopup to True, a calendar popup is shown when the user clicks on the widget, making it easier for the user to select a date.
         self.end_dedit = QDateTimeEdit(calendarPopup=True)
         self.start_dedit.setDateTime(datetime.datetime.strptime('Mar 31 2023  12:00AM', '%b %d %Y %I:%M%p'))
         self.end_dedit.setDateTime(datetime.datetime.strptime('Apr 1 2023  12:00AM', '%b %d %Y %I:%M%p'))
@@ -61,20 +61,20 @@ class HistTab(QWidget):
         self.date_box.layout().addWidget(self.end_label)
         #self.end_dedit.dateTimeChanged.connect(self.range_changed)
         self.date_box.layout().addWidget(self.end_dedit)
-        self.range_but = QPushButton('Open Range')
-        self.range_but.clicked.connect(self.range_changed)
-        self.date_box.layout().addWidget(self.range_but)
+        self.range_but = QPushButton('Open Range') #Creates a push button (QPushButton) with the label 'Open Range' and assigns it to the self.range_but variable.
+        self.range_but.clicked.connect(self.range_changed) #Connects the clicked signal of the self.range_but button to the self.range_changed slot. 
+        self.date_box.layout().addWidget(self.range_but) #Adds the self.range_but button to the layout of the self.date_box group box using the addWidget() method.
 
-        # Selection list
-        self.event_model = QStandardItemModel()
+        # Selection list , The QStandardItemModel class provides a way to store and manipulate data that can be used by certain Qt view classes, such as QTableView, to display and edit the data.
+        self.event_model = QStandardItemModel() #Creates a QStandardItemModel object and assigns it to the self.event_model variable. 
         self.event_model.setHorizontalHeaderLabels(
             ['Timestamp', 'Date', 'Time', 'Polarization', 'Sweeps', 'Channel', 'Label'])
 
         self.event_table = QTableView()
         self.event_table.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.event_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.event_table.resizeColumnsToContents()
-        self.event_table.setModel(self.event_model)
+        self.event_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents) #table view will expand or shrink vertically to display all rows without requiring scrolling.
+        self.event_table.resizeColumnsToContents() #automatically adjusts the width of each column to match the width of its contents. 
+        self.event_table.setModel(self.event_model) #associate the data stored in the model with the table view.
         self.event_table.clicked.connect(self.select_event)
         self.left.addWidget(self.event_table)
 
